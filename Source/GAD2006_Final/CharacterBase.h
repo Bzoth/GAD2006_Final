@@ -67,8 +67,8 @@ public:
     float MaxMana;
     UPROPERTY(BlueprintReadOnly, Category = "Resources")
     float CurrentMana;
-    UPROPERTY(BlueprintReadOnly, Category = "Resources")
-    float CanTakeDamage = true;
+    UPROPERTY(BlueprintReadWrite, Category = "Resources")
+    bool CanTakeDamage = true;
     UPROPERTY(BlueprintReadOnly, Category = "Resources")
     bool IsDead = false;
 

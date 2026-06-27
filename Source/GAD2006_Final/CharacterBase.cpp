@@ -225,14 +225,19 @@ void ACharacterBase::LightMagicAttack()
         
         if (SmallProjectileClass)
         {
-            FVector SpawnLocation = GetMesh()->GetSocketLocation(TEXT("Head")) + GetActorForwardVector() * 45; // Sağ el soket ismi
+            FVector SpawnLocation = GetMesh()->GetSocketLocation(TEXT("Head")) + GetActorForwardVector() * 45; 
             FRotator SpawnRotation = GetActorRotation();
 
             FActorSpawnParameters SpawnParams;
             SpawnParams.Owner = this;
             SpawnParams.Instigator = GetInstigator();
             
-            GetWorld()->SpawnActor<ASmallProjectile>(SmallProjectileClass, SpawnLocation, SpawnRotation, SpawnParams);
+            ASmallProjectile* SpawnedProjectile = GetWorld()->SpawnActor<ASmallProjectile>(SmallProjectileClass, SpawnLocation, SpawnRotation, SpawnParams);
+
+            if (SpawnedProjectile)
+            {
+                SpawnedProjectile->Damage = Damage;
+            }
         }
     }
 }
