@@ -29,6 +29,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	int SkillPoints = 15;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cosmetic")
+	TArray<UStaticMesh*> Hats = {};
+
+	int HatIndex = 0;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	int Vigor = 1;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
@@ -40,6 +45,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Character Creation")
 	bool ApplyPoints(EPlayerStat Stat, float Change);
+
+	UFUNCTION(BlueprintCallable, Category = "Character Creation")
+	UStaticMesh* SetHat(float Increase);
 
 	UFUNCTION(BlueprintCallable)
 	bool IsReady();

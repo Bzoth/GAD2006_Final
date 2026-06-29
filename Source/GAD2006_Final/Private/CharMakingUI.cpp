@@ -39,3 +39,22 @@ bool UCharMakingUI::IsReady()
 {
 	return (SkillPoints == 0);
 }
+
+UStaticMesh* UCharMakingUI::SetHat(float Increase)
+{
+
+	HatIndex = HatIndex + Increase;
+
+	if (HatIndex < 0)
+	{
+		HatIndex = Hats.Num() - 1;
+	}
+	else if (HatIndex >= Hats.Num())
+	{
+		HatIndex = 0;
+	}
+	
+	return Hats[HatIndex];
+}
+
+
