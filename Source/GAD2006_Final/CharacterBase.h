@@ -122,6 +122,9 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Items")
     void HealPotionPickup();
 
+    UFUNCTION(BlueprintCallable, Category = "Items")
+    void Heal(float Amount);
+
     UFUNCTION(BlueprintCallable, Category = "Combat")
     TArray<FAttackReturn> AttackTrace (UStaticMeshComponent* Sword);
 

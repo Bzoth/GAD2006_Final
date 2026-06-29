@@ -51,10 +51,10 @@ public:
     void FireBossProjectile(FVector FirePoint);
     
     UFUNCTION(BlueprintCallable, Category = "Combat")
-    TArray<FBAttackReturn> AttackTrace(FVector Fist, float Size);
+    TArray<FBAttackReturn> AttackTrace(FVector Start, FVector End, float Size);
     
     UFUNCTION(BlueprintCallable, Category = "Boss|Animation")
-    bool  TookHeavyDamage(float Damage);
+    bool TookHeavyDamage(float Damage);
     
     UFUNCTION(BlueprintCallable, Category = "Boss|Animation")
     void ExplodeTransition();

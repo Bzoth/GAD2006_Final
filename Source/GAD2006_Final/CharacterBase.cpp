@@ -301,10 +301,14 @@ void ACharacterBase::UsePotion()
     if (CurrentPotions > 0 && CurrentHealth < MaxHealth && CanAttack)
     {
         CanAttack = false;
-        CurrentPotions--;
-        CurrentHealth = FMath::Clamp(CurrentHealth + PotionHealAmount, 0.0f, MaxHealth);
         OnPotionUsed(); 
     }
+}
+
+void ACharacterBase::Heal(float Amount)
+{
+    CurrentPotions--;
+    CurrentHealth = FMath::Clamp(CurrentHealth + Amount, 0.0f, MaxHealth);
 }
 
 void ACharacterBase::TakeDamage(float DamageAmount)

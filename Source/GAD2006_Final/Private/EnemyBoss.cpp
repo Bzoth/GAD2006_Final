@@ -6,7 +6,7 @@
 
 AEnemyBoss::AEnemyBoss()
 {
-    MaxHealth = 500.0f; 
+    MaxHealth = 2000.0f; 
     
 }
 
@@ -42,7 +42,7 @@ bool AEnemyBoss::CheckInRange(AActor* Player)
 }
 
 
-TArray<FBAttackReturn> AEnemyBoss::AttackTrace(FVector Fist, float Size)
+TArray<FBAttackReturn> AEnemyBoss::AttackTrace(FVector Start, FVector End, float Size)
 {
 
     TArray<FHitResult> HitResults;
@@ -51,8 +51,8 @@ TArray<FBAttackReturn> AEnemyBoss::AttackTrace(FVector Fist, float Size)
     
     bool bHit = UKismetSystemLibrary::SphereTraceMulti(
         GetWorld(),
-        Fist,
-        Fist,
+        Start,
+        End,
         Size,
         UEngineTypes::ConvertToTraceType(ECC_Pawn),
         true,
@@ -102,9 +102,9 @@ bool AEnemyBoss::TookHeavyDamage(float Damage)
 {
     TakenDamage = Damage + TakenDamage;
 
-    if (TakenDamage > 200.0f)
+    if (TakenDamage > 300.0f)
     {
-        TakenDamage = TakenDamage - 200.0f;
+        TakenDamage = TakenDamage - 300.0f;
         CanHitAnim = true;
         return true;
     }
