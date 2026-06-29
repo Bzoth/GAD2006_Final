@@ -41,15 +41,6 @@ void ACharacterBase::BeginPlay()
 {
     Super::BeginPlay();
     
-  
-    MaxHealth = 100.0f + (Vigor * 10.0f);
-    MaxStamina = 80.0f + (Endurance * 5.0f);
-    MaxMana = 50.0f + (Intelligence * 8.0f);
-
-    CurrentHealth = MaxHealth;
-    CurrentStamina = MaxStamina;
-    CurrentMana = MaxMana;
-    CurrentPotions = MaxPotions;
 
     if (GetMesh()->GetMaterial(0))
     {
@@ -65,6 +56,24 @@ void ACharacterBase::Tick(float DeltaTime)
     {
         RegenStamina(DeltaTime);
     }
+}
+
+void ACharacterBase::SetStats(float V, float E, float S, float I)
+{
+
+    Vigor = V;
+    Endurance = E;
+    Strength = S;
+    Intelligence = I;
+    
+    MaxHealth = 100.0f + (Vigor * 10.0f);
+    MaxStamina = 80.0f + (Endurance * 5.0f);
+    MaxMana = 50.0f + (Intelligence * 8.0f);
+
+    CurrentHealth = MaxHealth;
+    CurrentStamina = MaxStamina;
+    CurrentMana = MaxMana;
+    CurrentPotions = MaxPotions;
 }
 
 void ACharacterBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -337,22 +346,6 @@ void ACharacterBase::TakeDamage(float DamageAmount)
 void ACharacterBase::HealPotionPickup()
 {
     if (CurrentPotions < MaxPotions) CurrentPotions++;
-}
-
-void ACharacterBase::ChangeModelColor(FLinearColor NewColor)
-{
-    if (DynamicMaterial)
-    {
-        DynamicMaterial->SetVectorParameterValue(TEXT("BodyColor"), NewColor);
-    }
-}
-
-void ACharacterBase::EquipHat(UStaticMesh* NewHatMesh)
-{
-    if (HatMesh && NewHatMesh)
-    {
-        HatMesh->SetStaticMesh(NewHatMesh);
-    }
 }
 
 void ACharacterBase::Turn(float Value) { AddControllerYawInput(Value); }

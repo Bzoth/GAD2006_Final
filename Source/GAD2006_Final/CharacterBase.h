@@ -133,13 +133,10 @@ public:
 
     UFUNCTION(BlueprintCallable, Category = "Combat")
     void TakeDamage(float DamageAmount);
-
-   
-    UFUNCTION(BlueprintCallable, Category = "Customization")
-    void ChangeModelColor(FLinearColor NewColor);
+    
 
     UFUNCTION(BlueprintCallable, Category = "Customization")
-    void EquipHat(UStaticMesh* NewHatMesh);
+    void SetStats(float V, float E, float S, float I);
 
 protected:
    
