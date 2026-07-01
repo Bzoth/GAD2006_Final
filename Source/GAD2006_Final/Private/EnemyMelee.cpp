@@ -29,7 +29,7 @@ TArray<FMEAttackReturn> AEnemyMelee::EnemyTrace(FVector Fist)
         UEngineTypes::ConvertToTraceType(ECC_Pawn),
         true,
         ActorsToIgnore,
-        EDrawDebugTrace::ForOneFrame, 
+        EDrawDebugTrace::None, 
         HitResults,
         true
         );
