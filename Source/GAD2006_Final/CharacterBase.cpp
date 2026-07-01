@@ -192,7 +192,7 @@ TArray<FAttackReturn> ACharacterBase::AttackTrace(UStaticMeshComponent* Sword)
         UEngineTypes::ConvertToTraceType(ECC_Pawn),
         true,
         ActorsToIgnore,
-        EDrawDebugTrace::ForOneFrame, 
+        EDrawDebugTrace::None, 
         HitResults,
         true
         );
@@ -275,7 +275,7 @@ TArray<FAttackReturn> ACharacterBase::SpecialMagicAttackTrace()
         UEngineTypes::ConvertToTraceType(ECC_Pawn),
         true,
         ActorsToIgnore,
-        EDrawDebugTrace::ForOneFrame, 
+        EDrawDebugTrace::None, 
         HitResults,
         true
         );
@@ -347,6 +347,12 @@ void ACharacterBase::HealPotionPickup()
 {
     if (CurrentPotions < MaxPotions) CurrentPotions++;
 }
+
+void ACharacterBase::ManaPickup()
+{
+    CurrentMana = FMath::Clamp(CurrentMana + 50.0f, 0.0f, MaxMana);
+}
+
 
 void ACharacterBase::Turn(float Value) { AddControllerYawInput(Value); }
 void ACharacterBase::LookUp(float Value) { AddControllerPitchInput(Value); }

@@ -57,7 +57,7 @@ TArray<FBAttackReturn> AEnemyBoss::AttackTrace(FVector Start, FVector End, float
         UEngineTypes::ConvertToTraceType(ECC_Pawn),
         true,
         ActorsToIgnore,
-        EDrawDebugTrace::ForOneFrame, 
+        EDrawDebugTrace::None, 
         HitResults,
         true
         );

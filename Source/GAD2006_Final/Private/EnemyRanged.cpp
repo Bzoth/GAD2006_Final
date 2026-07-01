@@ -30,7 +30,7 @@ bool AEnemyRanged::CanSeePlayer(AActor* Player)
         ObjectTypes,
         true,
         ActorsToIgnore,
-        EDrawDebugTrace::ForOneFrame, 
+        EDrawDebugTrace::None, 
         HitResult,
         true
     );

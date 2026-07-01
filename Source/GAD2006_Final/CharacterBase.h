@@ -123,6 +123,9 @@ public:
     void HealPotionPickup();
 
     UFUNCTION(BlueprintCallable, Category = "Items")
+    void ManaPickup();
+
+    UFUNCTION(BlueprintCallable, Category = "Items")
     void Heal(float Amount);
 
     UFUNCTION(BlueprintCallable, Category = "Combat")
